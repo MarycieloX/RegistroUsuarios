@@ -17,7 +17,7 @@ app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:123456@localhost/user'
 app.config['SQLALCHEMY_TRACK_MODEFICATIONS']=False
 
 # secret key
-app.config['SECRET_KEY']='My super secret that no one is supposed to knaw'
+app.config['SECRET_KEY']='My super secret that no one is supposed to know'
 
 #initialize the database
 db=SQLAlchemy(app)
