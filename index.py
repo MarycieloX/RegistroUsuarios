@@ -9,11 +9,10 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app=Flask(__name__)
-if __name__ == '__main__':
-    app.run(debug=True)
+
 
 #add datebase
-app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:123456@localhost/user'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://admin:123456789@tarea-instance-1.cwntvuamkmig.us-east-1.rds.amazonaws.com/DB_users'
 app.config['SQLALCHEMY_TRACK_MODEFICATIONS']=False
 
 # secret key
@@ -128,4 +127,5 @@ def update_user(id):
 
     return render_template('updateUser.html',user=user,form=form,name=name,our_users=our_users)
 
-
+if __name__ == '__main__':
+    app.run(debug=True,port=5000,host="0.0.0.0")
