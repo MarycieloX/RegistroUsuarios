@@ -12,7 +12,7 @@ app=Flask(__name__)
 
 
 #add datebase
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://admin:123456789@tarea-instance-1.cwntvuamkmig.us-east-1.rds.amazonaws.com/DB_users'
+app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://admin:123456789@dbaws.cwntvuamkmig.us-east-1.rds.amazonaws.com/BDUSERS'
 app.config['SQLALCHEMY_TRACK_MODEFICATIONS']=False
 
 # secret key
@@ -26,7 +26,7 @@ class Users(db.Model):
     name=db.Column(db.String(200),nullable=False)
     email=db.Column(db.String(120), nullable=False, unique=True)
     date_added=db.Column(db.DateTime, default= datetime.utcnow)
-    
+
     #create a String
     def __repr__(self):
         return '<Name %r>'% self.name
@@ -129,3 +129,4 @@ def update_user(id):
 
 if __name__ == '__main__':
     app.run(debug=True,port=5000,host="0.0.0.0")
+
